@@ -1,0 +1,23 @@
+int ledmodule=2;                   
+int tiltmodule=4;               
+int sensorvalue;                
+void setup()
+{
+ pinMode(ledmodule,OUTPUT);       
+ pinMode(tiltmodule,INPUT);   
+ Serial.begin(115200);        
+}
+void loop() 
+{
+ sensorvalue = digitalRead(tiltmodule); 
+  if (sensorvalue==HIGH)         
+ {
+  digitalWrite(ledmodule,HIGH);   
+  Serial.println("Rolling");  
+ }
+ else{
+  digitalWrite(ledmodule,LOW);   
+  Serial.println("Stable");       
+ }
+ delay(20);                  
+}
